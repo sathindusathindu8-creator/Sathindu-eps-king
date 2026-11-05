@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EPS Korean Learning Center</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body { background: #f4f7fb; color: #222; }
+header { background: linear-gradient(135deg, #003478, #0056a6); color: white; padding: 25px; text-align: center; }
+header h1 { font-size: 30px; }
+nav { background: #111; display: flex; justify-content: center; flex-wrap: wrap; }
+nav a { color: white; padding: 15px; text-decoration: none; }
+nav a:hover { background: #e60026; }
+.hero { text-align: center; padding: 70px 20px; background: linear-gradient(135deg, #dceaff, #ffffff); }
+.hero h2 { font-size: 32px; color: #003478; }
+.hero button { padding: 13px 25px; margin-top: 20px; background: #e60026; color: white; border: none; border-radius: 8px; cursor: pointer; }
+.container { padding: 30px 5%; }
+.section-title { text-align: center; margin-bottom: 25px; color: #003478; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.card { background: white; padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 3px 12px #0001; }
+.card h3 { color: #003478; margin-bottom: 12px; }
+.card button { margin-top: 15px; padding: 10px 20px; background: #003478; color: white; border: none; border-radius: 6px; cursor: pointer; }
+footer { background: #111; color: white; text-align: center; padding: 25px; margin-top: 40px; }
+input { padding: 12px; width: 100%; max-width: 400px; border: 1px solid #ccc; border-radius: 8px; }
+</style>
+</head>
+<body>
+<header>
+<h1>🇰🇷 EPS KOREAN LEARNING CENTER</h1>
+<p>කොරියානු භාෂාව ඉගෙනගනිමු | EPS-TOPIK සඳහා සූදානම් වෙමු</p>
+</header>
+<nav>
+<a href="#home">Home</a><a href="#lessons">EPS Lessons</a><a href="#notes">Short Notes</a><a href="#vocabulary">Vocabulary</a><a href="#listening">Listening</a><a href="#papers">Model Papers</a><a href="#practice">Practice</a>
+</nav>
+<section class="hero" id="home">
+<h2>Welcome to Korean Learning Center</h2>
+<p>EPS-TOPIK විභාගයට සූදානම් වීමට අවශ්‍ය සියල්ල එකම තැනකින්.</p>
+<button onclick="startLearning()">Start Learning</button>
+</section>
+<section class="container" id="lessons">
+<h2 class="section-title">📚 EPS-TOPIK Lessons</h2>
+<div class="cards">
+<div class="card"><h3>EPS Book 1</h3><p>පළමු පොතේ කොරියානු පාඩම්</p><button onclick="showMessage('EPS Book 1')">View Lessons</button></div>
+<div class="card"><h3>EPS Book 2</h3><p>දෙවන පොතේ කොරියානු පාඩම්</p><button onclick="showMessage('EPS Book 2')">View Lessons</button></div>
+</div>
+</section>
+<section class="container" id="notes">
+<h2 class="section-title">📝 Korean Short Notes</h2>
+<div class="cards">
+<div class="card"><h3>Korean Grammar</h3><p>කොරියානු ව්‍යාකරණ කෙටි සටහන්</p></div>
+<div class="card"><h3>Important Notes</h3><p>EPS-TOPIK වැදගත් සටහන්</p></div>
+</div>
+</section>
+<section class="container" id="vocabulary">
+<h2 class="section-title">🇰🇷 Korean Vocabulary</h2>
+<center><input type="text" id="search" placeholder="කොරියානු වචනයක් සොයන්න..." onkeyup="searchWords()"></center>
+<div class="cards" id="wordList">
+<div class="card word"><h3>안녕하세요</h3><p>අන්නියොන්හාසෙයෝ</p><p>ආයුබෝවන්</p></div>
+<div class="card word"><h3>감사합니다</h3><p>කම්සාහම්නිදා</p><p>ස්තූතියි</p></div>
+<div class="card word"><h3>사랑</h3><p>සාරං</p><p>ආදරය</p></div>
+</div>
+</section>
+<section class="container" id="listening">
+<h2 class="section-title">🔊 Korean Listening</h2>
+<div class="card"><h3>안녕하세요</h3><p>ආයුබෝවන්</p><button onclick="speakKorean('안녕하세요')">Listen Audio</button></div>
+</section>
+<section class="container" id="papers">
+<h2 class="section-title">📄 EPS-TOPIK Model Papers</h2>
+<div class="cards">
+<div class="card"><h3>Reading Test</h3><p>කියවීමේ පුහුණුව</p><button onclick="startQuiz()">Start Exam</button></div>
+<div class="card"><h3>Listening Test</h3><p>ශ්‍රවණ පුහුණුව</p><button onclick="showMessage('Listening Test')">Start Test</button></div>
+</div>
+</section>
+<section class="container" id="practice">
+<h2 class="section-title">🎯 Korean Practice Center</h2>
+<div class="card"><h3>Daily Korean Practice</h3><p>දිනපතා කොරියානු භාෂාව පුහුණු වන්න.</p><button onclick="showMessage('Daily Practice')">Start Practice</button></div>
+</section>
+<footer>
+<h3>EPS KOREAN LEARNING CENTER</h3>
+<p>Learn Korean | Practice Korean | Pass EPS-TOPIK</p>
+<p>© 2026 Korean Learning Center</p>
+</footer>
+<script>
+function startLearning() {
+    document.getElementById("lessons").scrollIntoView({ behavior: "smooth" });
+}
+function showMessage(name) {
+    alert(name + " - පාඩම් ඉක්මනින් එකතු කරනු ලැබේ.");
+}
+function speakKorean(text) {
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "ko-KR";
+    speech.rate = 0.8;
+    speechSynthesis.speak(speech);
+}
+function searchWords() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let words = document.querySelectorAll(".word");
+    words.forEach(word => {
+        word.style.display = word.innerText.toLowerCase().includes(input) ? "block" : "none";
+    });
+}
+function startQuiz() {
+    let answer = prompt("안녕하세요 යන්නෙහි සිංහල තේරුම කුමක්ද?\n1. ස්තූතියි\n2. ආයුබෝවන්\n3. සුබ රාත්‍රියක්");
+    if (answer === "2") { alert("නිවැරදියි! 🎉"); }
+    else { alert("නැවත උත්සාහ කරන්න!"); }
+}
+</script>
+</body>
+</html>
